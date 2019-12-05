@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "102166730653",
+    "firebase_url": "https://lana-525e3.firebaseio.com",
+    "project_id": "lana-525e3",
+    "storage_bucket": "lana-525e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102166730653:android:69e6fe33c2eb0d66fac174",
+        "android_client_info": {
+          "package_name": "com.example.tubes.lana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "102166730653-31temkf4720abihigolku14duc5pou7v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tubes.lana",
+            "certificate_hash": "58bed5cedff9bef58d57c834bdf98aa438594eac"
+          }
+        },
+        {
+          "client_id": "102166730653-8mr9c50dnrsegsbgcpllti5262mnnm18.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQJhaw5ze984XIehywQtM0r4CPpkMYLiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "102166730653-8mr9c50dnrsegsbgcpllti5262mnnm18.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
