@@ -137,7 +137,7 @@
             android:layout_marginTop="80dp"
             >
             <Button
-                android:id="@+id/logiin"
+                android:id="@+id/login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Login"
@@ -147,19 +147,6 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:layout_marginRight="10dp"
-                android:textStyle="bold"
-                />
-            <Button
-                android:id="@+id/sup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SignUp"
-                android:textColor="#fff"
-                android:background="@color/colorButton"
-                android:padding="15dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_marginLeft="10dp"
                 android:textStyle="bold"
                 />
         </LinearLayout>

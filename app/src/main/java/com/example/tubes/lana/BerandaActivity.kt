@@ -13,24 +13,24 @@ class BerandaActivity : AppCompatActivity() {
     }
 
     fun lapotikClick(view: View) {
-        val nextActivity = Intent(this, LoginActiciviy::class.java)
+        val nextActivity = Intent(this, LoginActivity::class.java)
         startActivity(nextActivity)
     }
     fun lamasiClick(view: View) {
-        val nextActivity = Intent(this, LoginActiciviy::class.java)
+        val nextActivity = Intent(this, LoginActivity::class.java)
         startActivity(nextActivity)
     }
 
     fun laminderClick(view: View) {
-        val nextActivity = Intent(this, LoginActiciviy::class.java)
+        val nextActivity = Intent(this, LoginActivity::class.java)
         startActivity(nextActivity)
     }
     fun lahragaClick(view: View) {
-        val nextActivity = Intent(this, LoginActiciviy::class.java)
+        val nextActivity = Intent(this, LoginActivity::class.java)
         startActivity(nextActivity)
     }
     fun panduanClick(view: View) {
-        val nextActivity = Intent(this, LoginActiciviy::class.java)
+        val nextActivity = Intent(this, LoginActivity::class.java)
         startActivity(nextActivity)
     }
 
