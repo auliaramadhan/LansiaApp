@@ -1,6 +1,5 @@
 package com.example.tubes.lana
 
-import android.app.LauncherActivity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,7 +19,7 @@ class PanduanActivity : AppCompatActivity() {
     fun helpLahragaclick(view: View) {
         val intent = Intent(this, PanduanDetailActivity::class.java)
         intent.putExtra(ID_STRING, R.string.panduanLahraga)
-        intent.putExtra(ID_IMAGE, R.drawable.Lahraga_img)
+        intent.putExtra(ID_IMAGE, R.drawable.lahraga_img)
         startActivity(intent)
     }
     fun helpLaminderclick(view: View) {

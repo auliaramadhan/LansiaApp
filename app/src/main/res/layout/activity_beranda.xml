@@ -67,7 +67,7 @@
         android:onClick="lahragaClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLamasi"
-        app:srcCompat="@drawable/Lahraga_img" />
+        app:srcCompat="@drawable/lahraga_img" />
 
     <ImageView
         android:id="@+id/imgPanduan"

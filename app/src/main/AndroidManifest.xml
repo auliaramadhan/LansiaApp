@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LamasiDetail_activity"></activity>
+        <activity android:name=".LamasiDetailActivity"></activity>
         <activity android:name=".LamasiActivity" />
         <activity android:name=".CallCenterActivity" />
         <activity
