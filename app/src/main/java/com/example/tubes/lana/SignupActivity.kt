@@ -19,9 +19,6 @@ class SignupActivity : AppCompatActivity() {
     var fieldphone: TextView = findViewById(R.id.passwrd)
     private lateinit var mAuth: FirebaseAuth
 
-    val RC_SIGN_IN: Int = 1
-    lateinit var mGoogleSignInClient: GoogleSignInClient
-    lateinit var mGoogleSignInOptions: GoogleSignInOptions
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

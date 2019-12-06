@@ -30,7 +30,7 @@ class BerandaActivity : AppCompatActivity() {
         startActivity(nextActivity)
     }
     fun panduanClick(view: View) {
-        val nextActivity = Intent(this, LoginActivity::class.java)
+        val nextActivity = Intent(this, PanduanActivity::class.java)
         startActivity(nextActivity)
     }
 

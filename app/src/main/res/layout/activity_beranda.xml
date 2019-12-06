@@ -24,13 +24,13 @@
         android:id="@+id/imgLapotik"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:clickable="true"
         android:onClick="lapotikClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgLana"
+        app:layout_constraintTop_toBottomOf="@+id/txtwelcome"
         app:srcCompat="@drawable/Lapotik_img" />
 
     <ImageView
@@ -121,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imgLahraga" />
 
     <TextView
-        android:id="@+id/txt "
+        android:id="@+id/txtLaminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -145,4 +145,16 @@
         app:layout_constraintEnd_toEndOf="@+id/imgLamasi"
         app:layout_constraintStart_toStartOf="@+id/imgLamasi"
         app:layout_constraintTop_toBottomOf="@+id/imgLamasi" />
+
+    <TextView
+        android:id="@+id/txtwelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="sdfdfdsdfsdsfdfsdsf"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/imgLana"
+        app:layout_constraintStart_toStartOf="@+id/imgLana"
+        app:layout_constraintTop_toBottomOf="@+id/imgLana"
+        style="@style/outlineHitam"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

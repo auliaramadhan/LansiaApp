@@ -19,6 +19,11 @@ import android.util.Log
 import android.widget.Button
 import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 
 
@@ -28,12 +33,23 @@ class LoginActivity : AppCompatActivity() {
     var fieldpassword: TextView = findViewById(R.id.passwrd)
     private lateinit var mAuth: FirebaseAuth
 
+    val RC_SIGN_IN: Int = 1
+    lateinit var mGoogleSignInClient: GoogleSignInClient
+    lateinit var mGoogleSignInOptions: GoogleSignInOptions
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         mAuth = FirebaseAuth.getInstance()
+
+        mGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail().build()
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, mGoogleSignInOptions)
+
+
 
         findViewById<Button>(R.id.login).setOnClickListener {
             val email = fieldemail.text.toString()
@@ -43,6 +59,43 @@ class LoginActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
 
+        }
+    }
+
+    private fun signInGoogle() {
+        val signInIntent: Intent = mGoogleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == RC_SIGN_IN) {
+            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleResult (task)
+        }else {
+            Toast.makeText(this, "Terdapat kesalahan eksekusi", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun handleResult (completedTask: Task<GoogleSignInAccount>) {
+        try {
+            val account: GoogleSignInAccount? = completedTask.getResult(ApiException::class.java)
+            val mainIntent = Intent(this, BerandaActivity::class.java)
+            val preferences = getSharedPreferences(SHAREDPREFFILE, MODE_PRIVATE)
+            val edit = preferences.edit()
+            edit.putString(
+                USER_NAME,
+                account?.displayName
+            )
+            edit.commit()
+            mainIntent.putExtra(
+                USER_NAME,
+                account?.displayName
+            )
+            startActivity(mainIntent)
+            finish()
+        } catch (e: ApiException) {
+            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show()
         }
     }
 
@@ -59,20 +112,7 @@ class LoginActivity : AppCompatActivity() {
 //                    //memulai intent
 //                    startActivity(i)
 
-                    val mainIntent = Intent(this, BerandaActivity::class.java)
-                    val preferences = getSharedPreferences(SHAREDPREFFILE, MODE_PRIVATE)
-                    val edit = preferences.edit()
-                    edit.putString(
-                        "user",
-                        mAuth.currentUser!!.email!!.split(("@").toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
-                    )
-                    edit.commit()
-                    mainIntent.putExtra(
-                        "user",
-                        mAuth.currentUser!!.email!!.split(("@").toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
-                    )
-                    startActivity(mainIntent)
-                    finish()
+                    sendToMain()
                 } else {
                     //jika salah maka akan menampilkan toast
                     Toast.makeText(
@@ -100,21 +140,21 @@ class LoginActivity : AppCompatActivity() {
 //    }
 
     //metod Untuk memindahkan laman
-//    private fun sendToMain() {
-//        val mainIntent = Intent(this, BerandaActivity::class.java)
-//        val preferences = getSharedPreferences(SHAREDPREFFILE, MODE_PRIVATE)
-//        val edit = preferences.edit()
-//        edit.putString(
-//            "user",
-//            mAuth.currentUser!!.email!!.split(("@").toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
-//        )
-//        edit.commit()
-//        mainIntent.putExtra(
-//            "user",
-//            mAuth.currentUser!!.email!!.split(("@").toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
-//        )
-//        startActivity(mainIntent)
-//        finish()
-//    }
+    private fun sendToMain() {
+        val mainIntent = Intent(this, BerandaActivity::class.java)
+        val preferences = getSharedPreferences(SHAREDPREFFILE, MODE_PRIVATE)
+        val edit = preferences.edit()
+        edit.putString(
+            USER_NAME,
+            mAuth.currentUser!!.email!!.split(("@").toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
+        )
+        edit.commit()
+        mainIntent.putExtra(
+            USER_NAME,
+            mAuth.currentUser!!.email!!.split(("@").toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
+        )
+        startActivity(mainIntent)
+        finish()
+    }
 
 }

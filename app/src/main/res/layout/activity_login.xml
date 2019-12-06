@@ -123,12 +123,12 @@
 
             />
 
-        <ImageView
-            android:id="@+id/SignUpGoogle"
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/google_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src=""
-            app:srcCompat="@drawable/common_google_signin_btn_icon_dark_normal" />
+            android:layout_marginHorizontal="36dp"
+            android:padding="8dp" />
 
         <LinearLayout
             android:layout_width="match_parent"

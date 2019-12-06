@@ -16,58 +16,90 @@
         android:layout_marginBottom="32dp"
         app:srcCompat="@drawable/LANA" />
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/helplapotik"
+        android:onClick="helpLapotikclick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginVertical="8dp"
+        android:textAlignment="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="16dp"
+        android:padding="8dp"
         android:fontFamily="@font/textfont"
-        android:text="LAPOTIK"
+        android:text="Cara Menggunakan Lapotik"
         android:background="@color/colorButton"
-        android:textColor="@color/white"
-        android:textSize="18sp"/>
+        android:textColor="@color/colorTextButton"
+        android:textSize="18sp"
+        android:clickable="true"/>
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/helplamasi"
+        android:onClick="helpLamasiclick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginVertical="8dp"
+        android:textAlignment="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="16dp"
+        android:padding="8dp"
         android:fontFamily="@font/textfont"
-        android:text="LAPOTIK"
+        android:text="Cara Menggunakan Lapotik"
         android:background="@color/colorButton"
-        android:textColor="@color/white"
-        android:textSize="18sp"/>
+        android:textColor="@color/colorTextButton"
+        android:textSize="18sp"
+        android:clickable="true"/>
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/helplaminder"
+        android:onClick="helpLaminderclick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginVertical="8dp"
+        android:textAlignment="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="16dp"
+        android:padding="8dp"
         android:fontFamily="@font/textfont"
-        android:text="LAPOTIK"
+        android:text="Cara Menggunakan Lapotik"
         android:background="@color/colorButton"
-        android:textColor="@color/white"
-        android:textSize="18sp"/>
+        android:textColor="@color/colorTextButton"
+        android:textSize="18sp"
+        android:clickable="true"/>
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/helplahraga"
+        android:onClick="helpLahragaclick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginVertical="8dp"
+        android:textAlignment="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="16dp"
+        android:padding="8dp"
         android:fontFamily="@font/textfont"
-        android:text="LAPOTIK"
+        android:text="Cara Menggunakan Lapotik"
         android:background="@color/colorButton"
-        android:textColor="@color/white"
-        android:textSize="18sp"/>
+        android:textColor="@color/colorTextButton"
+        android:textSize="18sp"
+        android:clickable="true" />
 
-<!--    <View-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_weight="1"-->
-<!--        />-->
+    <TextView
+        android:id="@+id/callcenter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="16dp"
+        android:padding="8dp"
+        android:fontFamily="@font/textfont"
+        android:text="CALL CENTER"
+        android:background="@color/colorButton"
+        android:textColor="@color/colorTextButton"
+        android:textSize="18sp"
+        android:clickable="true"
+        android:onClick="callCenteclick"/>
+
 
 </LinearLayout>
