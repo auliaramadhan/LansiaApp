@@ -18,6 +18,7 @@ import android.widget.AdapterView
 import org.json.JSONException
 import org.json.JSONObject
 import android.os.AsyncTask
+import android.provider.MediaStore.Video.VideoColumns.CATEGORY
 import android.view.View
 import com.example.tubes.lana.Adapter.ListNewsAdapter
 import com.example.tubes.lana.Model.News
@@ -25,9 +26,7 @@ import com.example.tubes.lana.Model.News
 
 class LamasiActivity : AppCompatActivity() {
 
-
-    var API_KEY = "8190df9eb51445228e397e4185311a66" // ### YOUE NEWS API HERE ###
-    var NEWS_SOURCE = "techcrunch" // Other news source code at: https://newsapi.org/sources
+    
 //    var listNews: ListView
 //    var loader: ProgressBar
 
@@ -57,7 +56,8 @@ class LamasiActivity : AppCompatActivity() {
         }
 
         override fun doInBackground(vararg args: String): String? {
-            return Function.excuteGet("https://newsapi.org/v1/articles?source=$NEWS_SOURCE&sortBy=top&apiKey=$API_KEY")
+
+            return Function.excuteGet("https://newsapi.org/v2/top-headlines?country=id&category=$CATEGORY&apiKey=$API_KEY")
         }
 
         override fun onPostExecute(xml: String) {

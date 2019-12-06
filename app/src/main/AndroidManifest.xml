@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LamasiDetailActivity"></activity>
+        <activity android:name=".LahragaActivity"></activity>
+        <activity android:name=".LamasiDetailActivity" />
         <activity android:name=".LamasiActivity" />
         <activity android:name=".CallCenterActivity" />
         <activity
