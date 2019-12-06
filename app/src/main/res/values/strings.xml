@@ -3,4 +3,13 @@
     <string name="title_activity_panduan_detail">PanduanDetailActivity</string>
     <string name="panduanLapotik">1. Tekan Logo Lapotik \n2. Filter obat yang ingin dibeli \n3. Pilih jumlah obat yang ingin
         dibeli\n4. pilih metode Pembayaran\n5. Pensanan diantar ke Tujuan</string>
+
+    <string name="panduanLaminder">1. Tekan Logo Lapotik \n2. Filter obat yang ingin dibeli \n3. Pilih jumlah obat yang ingin
+        dibeli\n4. pilih metode Pembayaran\n5. Pensanan diantar ke Tujuan</string>
+
+    <string name="panduanLahraga">1. Tekan Logo Lapotik \n2. Filter obat yang ingin dibeli \n3. Pilih jumlah obat yang ingin
+        dibeli\n4. pilih metode Pembayaran\n5. Pensanan diantar ke Tujuan</string>
+
+    <string name="panduanLamasi">1. Tekan Logo Lapotik \n2. Filter obat yang ingin dibeli \n3. Pilih jumlah obat yang ingin
+        dibeli\n4. pilih metode Pembayaran\n5. Pensanan diantar ke Tujuan</string>
 </resources>
