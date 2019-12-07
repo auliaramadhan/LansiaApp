@@ -11,7 +11,7 @@
         android:id="@+id/imgLana"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/LANA"
+        android:src="@drawable/lana"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         />
@@ -49,9 +49,10 @@
                 android:letterSpacing="0.1"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimaryDark"
-                android:textSize="16dp" />
+                android:textSize="24sp" />
         </LinearLayout>
-
+        <View style="@style/black_outline"
+            android:layout_marginLeft="12dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,7 +67,7 @@
                 android:src="@drawable/password" />
 
             <EditText
-                android:id="@+id/passwrd"
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -76,9 +77,10 @@
                 android:letterSpacing="0.1"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="@color/colorPrimaryDark"
-                android:textSize="16dp" />
+                android:textSize="24sp" />
         </LinearLayout>
-
+        <View style="@style/black_outline"
+            android:layout_marginLeft="12dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -100,10 +102,12 @@
                 android:hint="Mobile Number"
                 android:inputType="number"
                 android:letterSpacing="0.1"
+                android:textSize="24sp"
                 android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/colorPrimaryDark"
-                android:textSize="16dp" />
+                android:textColorHint="@color/colorPrimaryDark" />
         </LinearLayout>
+        <View style="@style/black_outline"
+            android:layout_marginLeft="12dp"/>
 
     </LinearLayout>
 
@@ -124,27 +128,10 @@
             android:layout_marginHorizontal="48dp"
             android:textColor="#fff"
             android:background="@color/colorButton"
-            android:layout_weight="1"
             android:gravity="center"
             android:layout_marginLeft="10dp"
             android:textStyle="bold"
             />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="OR"
-            android:textColor="@color/colorPrimaryDark"
-            android:gravity="center"
-            android:layout_marginVertical="8dp"
-            />
-
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/google_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="36dp"
-            android:padding="8dp" />
 
 
         <TextView

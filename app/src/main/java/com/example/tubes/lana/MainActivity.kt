@@ -12,9 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var  mAuth: FirebaseAuth
 
-    val text_konten = """
-        Selamat Menggunakan LANA
-    """.trimIndent()
+    val text_konten = "Selamat Menggunakan Lana"
 
     lateinit var mPreferences : SharedPreferences
 
@@ -29,13 +27,10 @@ class MainActivity : AppCompatActivity() {
         viewLayar.setOnClickListener {
             // pada setiap function parameter otomatis jadi it
             var konten: TextView = findViewById(R.id.textContent)
-            when (konten.text){
-                text_konten -> {
-                    val nextActivity = Intent(this, LoginActivity::class.java)
+            if (konten.text == text_konten){
+                    val nextActivity = Intent(this@MainActivity, LoginActivity::class.java)
                     startActivity(nextActivity)
-                }
-                else -> konten.text = text_konten
-            }
+                }else konten.text = text_konten
         }
     }
 

@@ -56,8 +56,9 @@ class LamasiActivity : AppCompatActivity() {
         }
 
         override fun doInBackground(vararg args: String): String? {
-
-            return Function.excuteGet("https://newsapi.org/v2/top-headlines?country=id&category=$CATEGORY&apiKey=$API_KEY")
+            val apiResponse:String = URL("https://newsapi.org/v2/top-headlines?country=id&category=$CATEGORY_api&apiKey=$API_KEY").readText()
+//            return Function.excuteGet("https://newsapi.org/v2/top-headlines?country=id&category=$CATEGORY&apiKey=$API_KEY")
+            return apiResponse
         }
 
         override fun onPostExecute(xml: String) {
@@ -68,7 +69,7 @@ class LamasiActivity : AppCompatActivity() {
                     val jsonResponse = JSONObject(xml)
                     val jsonArray = jsonResponse.optJSONArray("articles")
 
-                    for (i in 0 until jsonArray.length()) {
+                    for (i in 0 until 20) {
                         val jsonObject = jsonArray.getJSONObject(i)
                         val map : News =News(jsonObject.optString(KEY_AUTHOR),
                             jsonObject.optString(KEY_TITLE),
@@ -114,10 +115,9 @@ object Function {
 
 
     fun excuteGet(targetURL: String): String? {
-        val url: URL
         var connection: HttpURLConnection? = null
         try {
-            url = URL(targetURL)
+            val url: URL = URL(targetURL)
             connection = url.openConnection() as HttpURLConnection
             connection!!.setRequestProperty("content-type", "application/json;  charset=utf-8")
             connection!!.setRequestProperty("Content-Language", "en-US")

@@ -18,12 +18,12 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/LANA" />
+        app:srcCompat="@drawable/lana" />
 
     <ImageView
         android:id="@+id/imgLapotik"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
         android:onClick="lapotikClick"
@@ -31,130 +31,115 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtwelcome"
-        app:srcCompat="@drawable/Lapotik_img" />
+        app:srcCompat="@drawable/lapotik_img" />
 
     <ImageView
         android:id="@+id/imgLamasi"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_marginStart="48dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:layout_marginTop="@android:dimen/notification_large_icon_height"
         android:clickable="true"
         android:onClick="lamasiClick"
+        app:layout_constraintEnd_toStartOf="@+id/imgLaminder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLapotik"
-        app:srcCompat="@drawable/Lamasi_img" />
+        app:srcCompat="@drawable/lamasi_img" />
 
     <ImageView
         android:id="@+id/imgLaminder"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:layout_marginTop="@android:dimen/notification_large_icon_height"
-        android:layout_marginEnd="48dp"
         android:clickable="true"
         android:onClick="laminderClick"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgLamasi"
         app:layout_constraintTop_toBottomOf="@+id/imgLapotik"
-        app:srcCompat="@drawable/Laminder_img" />
+        app:srcCompat="@drawable/laminder_img" />
 
     <ImageView
         android:id="@+id/imgLahraga"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
-        android:layout_marginStart="48dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:layout_marginTop="@android:dimen/notification_large_icon_width"
         android:clickable="true"
         android:onClick="lahragaClick"
+        app:layout_constraintEnd_toStartOf="@+id/imgPanduan"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLamasi"
         app:srcCompat="@drawable/lahraga_img" />
 
     <ImageView
         android:id="@+id/imgPanduan"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:layout_marginTop="64dp"
-        android:layout_marginEnd="48dp"
         android:onClick="panduanClick"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgLahraga"
         app:layout_constraintTop_toBottomOf="@+id/imgLaminder"
-        app:srcCompat="@drawable/Panduan_img" />
+        app:srcCompat="@drawable/panduan_img" />
 
     <TextView
         android:id="@+id/txtLapotik"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/textfont"
         android:text="LAPOTIK"
-        android:textColor="@color/colorText"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgLapotik" />
+        app:layout_constraintTop_toBottomOf="@+id/imgLapotik"
+        style="@style/word_beranda" />
 
     <TextView
         android:id="@+id/txtPanduan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/textfont"
         android:text="PANDUAN"
-        android:textColor="@color/colorText"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/imgPanduan"
         app:layout_constraintStart_toStartOf="@+id/imgPanduan"
-        app:layout_constraintTop_toBottomOf="@+id/imgPanduan" />
+        app:layout_constraintTop_toBottomOf="@+id/imgPanduan"
+        style="@style/word_beranda" />
 
     <TextView
         android:id="@+id/txtLahraga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/textfont"
         android:text="LAHRAGA"
-        android:textColor="@color/colorText"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/imgLahraga"
         app:layout_constraintStart_toStartOf="@+id/imgLahraga"
-        app:layout_constraintTop_toBottomOf="@+id/imgLahraga" />
+        app:layout_constraintTop_toBottomOf="@+id/imgLahraga"
+        style="@style/word_beranda" />
 
     <TextView
         android:id="@+id/txtLaminder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/textfont"
         android:text="LAMINDER"
-        android:textColor="@color/colorText"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/imgLaminder"
         app:layout_constraintStart_toStartOf="@+id/imgLaminder"
-        app:layout_constraintTop_toBottomOf="@+id/imgLaminder" />
+        app:layout_constraintTop_toBottomOf="@+id/imgLaminder"
+        style="@style/word_beranda" />
 
     <TextView
         android:id="@+id/txtLamasi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/textfont"
         android:text="LAMASI"
-        android:textColor="@color/colorText"
-        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/imgLamasi"
         app:layout_constraintStart_toStartOf="@+id/imgLamasi"
-        app:layout_constraintTop_toBottomOf="@+id/imgLamasi" />
+        app:layout_constraintTop_toBottomOf="@+id/imgLamasi"
+        style="@style/word_beranda" />
 
     <TextView
         android:id="@+id/txtwelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="sdfdfdsdfsdsfdfsdsf"
-        android:textSize="18sp"
+        android:text="Selamat Datang"
         app:layout_constraintEnd_toEndOf="@+id/imgLana"
         app:layout_constraintStart_toStartOf="@+id/imgLana"
         app:layout_constraintTop_toBottomOf="@+id/imgLana"
-        style="@style/outlineHitam"/>
+        style="@style/word_beranda" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:backgroundTint="@color/colorButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sign_out"
+        android:onClick="signOut"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,12 +25,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
+import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity() {
 
-    var fieldemail: TextView = findViewById(R.id.useremail)
-    var fieldpassword: TextView = findViewById(R.id.passwrd)
     private lateinit var mAuth: FirebaseAuth
 
     val RC_SIGN_IN: Int = 1
@@ -52,13 +51,22 @@ class LoginActivity : AppCompatActivity() {
 
 
         findViewById<Button>(R.id.login).setOnClickListener {
-            val email = fieldemail.text.toString()
-            val password = fieldemail.text.toString()
-            if (email == null || password == null ) signIn(email, password) else Toast.makeText(
+            val email = useremail.text.toString()
+            val password = passwrd.text.toString()
+            if (email != null || password != null ) signIn(email, password) else Toast.makeText(
                 this@LoginActivity, "field mohon diisi",
                 Toast.LENGTH_SHORT
             ).show()
 
+        }
+
+        SignUp.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, SignupActivity::class.java))
+        }
+
+
+        google_button.setOnClickListener {
+            signInGoogle()
         }
     }
 
@@ -80,7 +88,7 @@ class LoginActivity : AppCompatActivity() {
     private fun handleResult (completedTask: Task<GoogleSignInAccount>) {
         try {
             val account: GoogleSignInAccount? = completedTask.getResult(ApiException::class.java)
-            val mainIntent = Intent(this, BerandaActivity::class.java)
+            val mainIntent = Intent(this@LoginActivity, BerandaActivity::class.java)
             val preferences = getSharedPreferences(SHAREDPREFFILE, MODE_PRIVATE)
             val edit = preferences.edit()
             edit.putString(
@@ -95,7 +103,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(mainIntent)
             finish()
         } catch (e: ApiException) {
-            Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show()
+            Toast.makeText(this@LoginActivity, e.toString(), Toast.LENGTH_LONG).show()
         }
     }
 
