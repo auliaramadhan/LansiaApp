@@ -15,8 +15,11 @@ import com.google.firebase.auth.FirebaseUser
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.widget.EditText
 import com.example.tubes.lana.Model.PesananObat
 import com.google.firebase.auth.FirebaseAuth
+import java.text.NumberFormat
+import java.util.*
 
 
 class ObatDetailActivity : AppCompatActivity() {
@@ -30,6 +33,8 @@ class ObatDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_obat_detail)
 
+        val textJumlah = findViewById<EditText>(R.id.txtjumlah)
+
         database = FirebaseDatabase.getInstance()
         refObat = database.getReference(OBAT)
         refPesananObat = database.getReference(PESANAN_OBAT)
@@ -37,6 +42,7 @@ class ObatDetailActivity : AppCompatActivity() {
         val key = intent.getStringExtra(KEY_OBAT)
         val mauth : FirebaseAuth= FirebaseAuth.getInstance()
         val user : FirebaseUser? = mauth.currentUser
+        var harga : Int = 1
 
 
         refObat.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -46,16 +52,33 @@ class ObatDetailActivity : AppCompatActivity() {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 val data = snapshot.child(key).getValue(Obat::class.java)!!
+                harga = data.harga.toInt()
                 txtnamaobat.text = data.nama
                 imgobat.setImageResource(applicationContext.resources.getIdentifier(data.nama,
                     "drawable", applicationContext.packageName))
                 txtdeskripsi.text = "Kategori : ${data.kategori}\n ${data.deskripsi}"
-                pesananObat = PesananObat(key,data.nama,data.harga ,0 )
+                pesananObat = PesananObat(data.nama,data.harga.toInt() ,0 )
 
             }
         })
+
+        val format = NumberFormat.getCurrencyInstance()
+        format.setMaximumFractionDigits(0)
+        format.setCurrency(Currency.getInstance("IDR"))
+        imgadd.setOnClickListener {
+            val jumlah = textJumlah.text.toString().toInt() + 1
+            textJumlah.setText(jumlah.toString())
+            txttotalharga.text = "${format.format(jumlah*harga)}"
+        }
+        imgminus.setOnClickListener {
+            var jumlah = textJumlah.text.toString().toInt() - 1
+            if (jumlah == -1) jumlah = 0
+            textJumlah.setText(jumlah.toString())
+            txttotalharga.text = "${format.format(jumlah*harga)}"
+        }
         btnsimpan.setOnClickListener {
-            pesananObat.jumlah = txtjumlah.text.toString().toInt()
+            val jumlah = textJumlah.text.toString().toInt()
+            pesananObat.jumlah = jumlah
             pesananObat.totalharga *= pesananObat.jumlah
             refPesananObat.child(user?.uid.toString()).child(key).setValue(pesananObat)
             finish()

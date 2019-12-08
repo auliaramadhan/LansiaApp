@@ -1,8 +1,7 @@
 package com.example.tubes.lana.Model
 
-class PesananObat(
-           var nama : String,
-           var totalharga : Int,
-           var jumlah : Int) {
+class PesananObat(var nama : String = "",
+           var totalharga : Int = 0,
+           var jumlah : Int = 0) {
 
 }

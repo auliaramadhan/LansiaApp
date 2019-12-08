@@ -10,10 +10,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import androidx.annotation.NonNull
 import com.google.android.gms.tasks.OnCompleteListener
-import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.tasks.Task
+
 
 
 class BerandaActivity : AppCompatActivity() {
@@ -29,12 +30,28 @@ class BerandaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_beranda)
 
+        val intent = Intent(this@BerandaActivity, BerandaActivity::class.java)
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        intent.putExtra("EXIT", true)
+        startActivity(intent)
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
+
         preferences = getSharedPreferences(SHAREDPREFFILE, MODE_PRIVATE)
+        mAuth = FirebaseAuth.getInstance()
+
+        mGoogleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail().build()
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, mGoogleSignInOptions)
+
     }
 
     fun lapotikClick(view: View) {
-//        val nextActivity = Intent(this, LoginActivity::class.java)
-//        startActivity(nextActivity)
+        val nextActivity = Intent(this, LapotikActivity::class.java)
+        startActivity(nextActivity)
     }
     fun lamasiClick(view: View) {
         val nextActivity = Intent(this, LamasiActivity::class.java)
@@ -54,7 +71,7 @@ class BerandaActivity : AppCompatActivity() {
         startActivity(nextActivity)
     }
 
-    private fun signOut(view: View) {
+    fun signOut(view: View) {
         // Firebase sign out
         mAuth.signOut()
 
@@ -69,6 +86,5 @@ class BerandaActivity : AppCompatActivity() {
         startActivity(Intent(this, LoginActivity::class.java))
         finish()
     }
-
 
 }

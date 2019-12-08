@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tubes.lana.Adapter.ObatAdapter
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_lapotik.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class LapotikActivity : AppCompatActivity() {
@@ -34,15 +36,20 @@ class LapotikActivity : AppCompatActivity() {
 
         val listView : RecyclerView = findViewById(R.id.obatListView)
 
-        database = FirebaseDatabase.getInstance()
+        listObat = mutableListOf()
 
+        database = FirebaseDatabase.getInstance()
         refObat = database.getReference(OBAT)
 
-        refObat.addValueEventListener(object : ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
+        btnpembayaran.setOnClickListener{
+            startActivity(Intent(this, PembayaranActivity::class.java))
+        }
 
+
+        refObat.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                Toast.makeText(this@LapotikActivity, p0.message, Toast.LENGTH_LONG).show()
+            }
             override fun onDataChange(datas: DataSnapshot) {
                 if (datas.exists()){
                     for (data in datas.children){
@@ -50,25 +57,27 @@ class LapotikActivity : AppCompatActivity() {
                         obat.key = data.key!!
                         listObat.add(obat)
                     }
-                    adapter = ObatAdapter(this@LapotikActivity, listObat) { category ->
-                        val obatIntent = Intent(this@LapotikActivity, ObatDetailActivity::class.java)
-                        obatIntent.putExtra(KEY_OBAT, category.key)
-//                        startActivityForResult(obatIntent, REQUEST_CODE)
-                        startActivity(obatIntent)
-                    }
                 }
+                adapter = ObatAdapter(this@LapotikActivity, listObat) { category ->
+                    val obatIntent = Intent(this@LapotikActivity, ObatDetailActivity::class.java)
+                    obatIntent.putExtra(KEY_OBAT, category.key)
+//                        startActivityForResult(obatIntent, REQUEST_CODE)
+                    startActivity(obatIntent)
+                }
+                val layoutManager = GridLayoutManager(this@LapotikActivity, 2)
+                listView.layoutManager = layoutManager
+                listView.adapter = adapter
             }
         })
 
 
-        val layoutManager = GridLayoutManager(this, 2)
-        listView.layoutManager = layoutManager
-        listView.adapter = adapter
+
     }
+
 
     override fun onStart() {
         super.onStart()
-        val refPesananObat = database.getReference(PESANAN_OBAT)
+        val refPesananObat = database.getReference(PESANAN_OBAT).child(INFOPESANAN)
         val user : FirebaseUser? = FirebaseAuth.getInstance().currentUser
         refPesananObat.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
@@ -79,7 +88,9 @@ class LapotikActivity : AppCompatActivity() {
                 if (user != null) {
 
                     if (snapshot.child(user.uid).hasChild(PENGIRIMAM)) {
-                        intenthj
+                        val inten = Intent(this@LapotikActivity, PengirimanActivity::class.java)
+                        startActivity(inten)
+                        finish()
                     }
                 }
             }

@@ -12,8 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PengirimanActivity"></activity>
-        <activity android:name=".PembayaranActivity" />
+        <activity android:name=".PengirimanActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.tubes.lana.BerandaActivity" />
+        </activity>
+        <activity android:name=".PembayaranActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.tubes.lana.LapotikActivity" /></activity>
         <activity android:name=".ObatDetailActivity" />
         <activity android:name=".LapotikActivity" />
         <activity android:name=".LahragaActivity" />

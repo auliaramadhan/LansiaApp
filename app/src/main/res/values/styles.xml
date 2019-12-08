@@ -88,5 +88,12 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="check_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:buttonTint">@color/colorButton</item>
+    </style>
+
 
 </resources>

@@ -44,8 +44,7 @@ class ObatAdapter (val context: Context, val listobat: List<Obat>, val itemClick
             val format = NumberFormat.getCurrencyInstance()
             format.setMaximumFractionDigits(0)
             format.setCurrency(Currency.getInstance("IDR"))
-            format.format(1000000)
-            this.harga?.text = format.format(obat.harga)
+            this.harga?.text = format.format(obat.harga.toInt())
             itemView.setOnClickListener { itemClick(obat) }
         }
     }

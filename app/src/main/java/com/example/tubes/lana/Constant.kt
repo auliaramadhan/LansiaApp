@@ -29,3 +29,5 @@ val OBAT = "obat"
 val PEMBAYARAN = "pembayaran"
 val PENGIRIMAM = "pengiriman"
 val ALAMAT = "alamat"
+
+val INFOPESANAN = "infoPesanan"

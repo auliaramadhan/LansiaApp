@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/kontent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:paddingTop="8dp">
 
@@ -14,7 +14,7 @@
             android:id="@+id/txtnamaobat"
             style="@style/style_kalimat_login"
             android:text="asddasdasdasd"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:textAlignment="textStart"
             android:textSize="18sp"
             />
@@ -23,9 +23,9 @@
         <TextView
             android:id="@+id/txthargatotal"
             style="@style/style_kalimat_login"
-            android:text="asddasdasdasd"
+            android:text="asddasdasdaxccadsadsd"
             android:layout_weight="1"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textAlignment="textEnd"
             />
 

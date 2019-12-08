@@ -5,12 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.ImageView
 import android.widget.TextView
 import com.example.tubes.lana.Model.PesananObat
 import com.example.tubes.lana.R
+import java.text.NumberFormat
+import java.util.*
 
-class PesananObatAdapter(val context: Context, val categories: List<PesananObat>) : BaseAdapter(){
+class PesananObatAdapter(val context: Context, val pesanan: List<PesananObat>) : BaseAdapter(){
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val categoryView: View
@@ -19,23 +20,25 @@ class PesananObatAdapter(val context: Context, val categories: List<PesananObat>
         if (convertView == null) {
             categoryView = LayoutInflater.from(context).inflate(R.layout.pesanan_obat_list, null)
             holder = ViewHolder()
-            holder.categoryImage = categoryView.findViewById(R.id.categoryImage)
-            holder.categoryName = categoryView.findViewById(R.id.categoryName)
+            holder.namaObat = categoryView.findViewById(R.id.txtnamaobat)
+            holder.totalHarga = categoryView.findViewById(R.id.txthargatotal)
             categoryView.tag = holder
         } else {
             holder = convertView.tag as ViewHolder
             categoryView = convertView
         }
 
-        val category = categories[position]
-        val resourceId = context.resources.getIdentifier(category.image, "drawable", context.packageName)
-        holder.categoryImage?.setImageResource(resourceId)
-        holder.categoryName?.text = category.title
+        val data = pesanan[position]
+        holder.namaObat?.text = "${data.nama} X ${data.jumlah}"
+        val format = NumberFormat.getCurrencyInstance()
+        format.setMaximumFractionDigits(0)
+        format.setCurrency(Currency.getInstance("IDR"))
+        holder.totalHarga?.text = format.format(data.totalharga)
         return categoryView
     }
 
     override fun getItem(position: Int): Any {
-        return categories[position]
+        return pesanan[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -43,11 +46,11 @@ class PesananObatAdapter(val context: Context, val categories: List<PesananObat>
     }
 
     override fun getCount(): Int {
-        return categories.count()
+        return pesanan.count()
     }
 
     private class ViewHolder {
-        var categoryImage: ImageView? = null
-        var categoryName: TextView? = null
+        var namaObat: TextView? = null
+        var totalHarga: TextView? = null
     }
 }

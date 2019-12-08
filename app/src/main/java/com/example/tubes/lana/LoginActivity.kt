@@ -100,8 +100,8 @@ class LoginActivity : AppCompatActivity() {
                 USER_NAME,
                 account?.displayName
             )
-            startActivity(mainIntent)
             finish()
+            startActivity(mainIntent)
         } catch (e: ApiException) {
             Toast.makeText(this@LoginActivity, e.toString(), Toast.LENGTH_LONG).show()
         }
@@ -161,8 +161,8 @@ class LoginActivity : AppCompatActivity() {
             USER_NAME,
             mAuth.currentUser!!.email!!.split(("@").toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
         )
-        startActivity(mainIntent)
         finish()
+        startActivity(mainIntent)
     }
 
 }

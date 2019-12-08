@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/background_gradient"
     tools:context=".PengirimanActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/lana"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
@@ -29,56 +25,53 @@
             android:divider="#F5F5F5"
             android:dividerHeight="1dp"
             android:visibility="visible"
+            android:layout_weight="1"
             />
-
-        <EditText
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dikirimkan ke"
+            />
+        <TextView
             android:id="@+id/txtalamat"
-            android:inputType="textMultiLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Alamat pengiriman"
             android:lines="8"
             android:minLines="6"
             android:gravity="top|left"
             android:maxLines="10"
             android:background="@drawable/border_background"
             />
-
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView1" >
-
-            <RadioButton
-                android:id="@+id/radiocash"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="bayar Secara Cash" />
-
-            <RadioButton
-                android:id="@+id/radiobca"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bayar dengan BCA" />
-        </RadioGroup>
-
-        <EditText
-            android:id="@+id/txtnoBCA"
-            android:inputType="textMultiLine"
+        <TextView
+            android:id="@+id/txtpembayaran"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="Nomor virtual account"
-            android:visibility="gone"
+            android:textSize="24sp"
+            android:text="dibayar dengan"
             />
+        <View style="@style/black_outline" android:layout_margin="0dp" />
+
+        <CheckBox
+            android:id="@+id/c"
+            android:text="Pesan barang"
+            style="@style/check_button"
+            android:checked="true"/>
+        <CheckBox
+            android:id="@+id/cb_satu"
+            android:text="Pembayaran"
+            style="@style/check_button"/>
+
+        <CheckBox
+            android:id="@+id/cb_dua"
+            android:text="Barang diantar"
+            style="@style/check_button" />
+
+        <CheckBox
+            android:id="@+id/cb_tiga"
+            android:text="Barang diterima"
+            style="@style/check_button" />
 
 
-
-
-    </LinearLayout>
-
-</ScrollView>
+</LinearLayout>
