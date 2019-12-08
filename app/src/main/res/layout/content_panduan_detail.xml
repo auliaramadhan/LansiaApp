@@ -36,7 +36,8 @@
         android:id="@+id/imagepanduan"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/tolakAngin" />
 
     <ScrollView
         android:layout_width="match_parent"

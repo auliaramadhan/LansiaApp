@@ -6,8 +6,8 @@
     <color name="colorText">#14C44D</color>
     <color name="colorButton">#169E46</color>
     <color name="colorTextButton">#FFFFFF</color>
-
-
+    <color name="borderColor">#000000</color>
+    borderColor
 
 
 </resources>

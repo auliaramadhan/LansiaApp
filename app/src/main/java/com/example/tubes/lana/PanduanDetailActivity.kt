@@ -22,10 +22,10 @@ class PanduanDetailActivity : AppCompatActivity() {
         imagepanduan.setImageResource(intent.getIntExtra(ID_IMAGE, -1))
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-            onBackPressed();
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
             finish()
+//            onBackPressed();
         }
     }
 

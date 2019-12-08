@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_gradient"
+    tools:context=".PembayaranActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/lana"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:id="@+id/imgvw" />
+
+    <ListView
+        android:id="@+id/listbarang"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imgvw"
+        android:background="#7EFFFFFF"
+        android:divider="#F5F5F5"
+        android:dividerHeight="1dp"
+        android:visibility="visible"
+        />
+
+        <EditText
+            android:id="@+id/txtalamat"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Alamat pengiriman"
+            android:lines="8"
+            android:minLines="6"
+            android:gravity="top|left"
+            android:maxLines="10"
+            android:background="@drawable/border_background"
+        />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1" >
+
+            <RadioButton
+                android:id="@+id/radiocash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="bayar Secara Cash" />
+
+            <RadioButton
+                android:id="@+id/radiobca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bayar dengan BCA" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/txtnoBCA"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Nomor virtual account"
+            android:visibility="gone"
+            />
+        <Button
+            android:id="@+id/login"
+            android:text="Login"
+            android:gravity="center"
+            android:layout_gravity="end"
+            style="@style/button_medium"
+            android:layout_marginTop="24dp"/>
+
+
+    </LinearLayout>
+
+</ScrollView>
