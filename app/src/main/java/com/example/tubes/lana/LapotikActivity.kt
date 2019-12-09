@@ -1,31 +1,27 @@
 package com.example.tubes.lana
 
 import android.content.Intent
-import android.content.res.Configuration
-import android.nfc.cardemulation.CardEmulation.EXTRA_CATEGORY
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tubes.lana.Adapter.ObatAdapter
 import com.example.tubes.lana.Model.Obat
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_lapotik.*
-import java.util.*
-import kotlin.collections.ArrayList
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 
 
 class LapotikActivity : AppCompatActivity() {
 
     lateinit var database : FirebaseDatabase
     lateinit var refObat : DatabaseReference
+
+    lateinit var preferences : SharedPreferences
 
     private lateinit var listObat : MutableList<Obat>
     lateinit var adapter : ObatAdapter
@@ -41,8 +37,13 @@ class LapotikActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
         refObat = database.getReference(OBAT)
 
+        preferences = getSharedPreferences(SHAREDPREFFILE, MODE_PRIVATE)
+        val iduser = preferences.getString(USER_ID,"")
+
         btnpembayaran.setOnClickListener{
-            startActivity(Intent(this, PembayaranActivity::class.java))
+            val intent = Intent(this, PembayaranActivity::class.java)
+            intent.putExtra(USER_ID, iduser)
+            startActivity(intent)
         }
 
 
@@ -61,6 +62,7 @@ class LapotikActivity : AppCompatActivity() {
                 adapter = ObatAdapter(this@LapotikActivity, listObat) { category ->
                     val obatIntent = Intent(this@LapotikActivity, ObatDetailActivity::class.java)
                     obatIntent.putExtra(KEY_OBAT, category.key)
+                    obatIntent.putExtra(USER_ID, iduser)
 //                        startActivityForResult(obatIntent, REQUEST_CODE)
                     startActivity(obatIntent)
                 }
@@ -70,6 +72,44 @@ class LapotikActivity : AppCompatActivity() {
             }
         })
 
+        editsearch.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(arg0: Editable) {}
+
+            override fun beforeTextChanged(
+                arg0: CharSequence, arg1: Int,
+                arg2: Int, arg3: Int
+            ) {            }
+
+            override fun onTextChanged(
+                arg0: CharSequence, arg1: Int, arg2: Int,
+                arg3: Int
+            ) {
+                val textlength = editsearch.getText().length
+                val arrayObat = mutableListOf<Obat>()
+                for (obat in listObat ) {
+                    if (textlength <= obat.nama.length) {
+                        Log.d("ertyyy",obat.nama.toLowerCase().trim())
+                        val textSearch = editsearch.getText().toString().toLowerCase().trim()
+                        // cari di nama dan kategori
+                        if (obat.nama.toLowerCase().trim().contains(textSearch) ||
+                            obat.kategori.toLowerCase().trim().contains(textSearch)
+                        ) {
+                            arrayObat.add(obat)
+                        }
+                    }
+                }
+
+                adapter = ObatAdapter(this@LapotikActivity, arrayObat){ category ->
+                    val obatIntent = Intent(this@LapotikActivity, ObatDetailActivity::class.java)
+                    obatIntent.putExtra(KEY_OBAT, category.key)
+                    obatIntent.putExtra(USER_ID, iduser)
+//                        startActivityForResult(obatIntent, REQUEST_CODE)
+                    startActivity(obatIntent)
+                }
+                listView.setAdapter(adapter)
+            }
+        })
 
 
     }
@@ -78,17 +118,19 @@ class LapotikActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val refPesananObat = database.getReference(PESANAN_OBAT).child(INFOPESANAN)
-        val user : FirebaseUser? = FirebaseAuth.getInstance().currentUser
+//        val user : FirebaseUser? = FirebaseAuth.getInstance().currentUser
+        val id = preferences.getString(USER_ID, "")
         refPesananObat.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
 
-                if (user != null) {
+                if (id != "") {
 
-                    if (snapshot.child(user.uid).hasChild(PENGIRIMAM)) {
+                    if (snapshot.child(id).hasChild(PENGIRIMAM)) {
                         val inten = Intent(this@LapotikActivity, PengirimanActivity::class.java)
+                        inten.putExtra(USER_ID, id)
                         startActivity(inten)
                         finish()
                     }

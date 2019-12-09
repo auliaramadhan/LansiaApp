@@ -31,3 +31,5 @@ val PENGIRIMAM = "pengiriman"
 val ALAMAT = "alamat"
 
 val INFOPESANAN = "infoPesanan"
+
+val REMINDER = "reminder"

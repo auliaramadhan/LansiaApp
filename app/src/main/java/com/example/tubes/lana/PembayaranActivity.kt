@@ -1,8 +1,10 @@
 package com.example.tubes.lana
 
 import android.content.Intent
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.tubes.lana.Adapter.ObatAdapter
 import com.example.tubes.lana.Adapter.PesananObatAdapter
 import com.example.tubes.lana.Model.Obat
@@ -16,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_pembayaran.*
 class PembayaranActivity : AppCompatActivity() {
     lateinit var database : FirebaseDatabase
     lateinit var refPesananObat : DatabaseReference
-    lateinit var mUser : FirebaseUser
+//    lateinit var mUser : FirebaseUser
     private lateinit var listPesananObat : MutableList<PesananObat>
     lateinit var adapter: PesananObatAdapter
 
@@ -26,10 +28,11 @@ class PembayaranActivity : AppCompatActivity() {
 
         listPesananObat = mutableListOf()
 
-        mUser = FirebaseAuth.getInstance().currentUser!!
+//        mUser = FirebaseAuth.getInstance().currentUser!!
+        val iduser = intent.getStringExtra(USER_ID)
         database = FirebaseDatabase.getInstance()
-        refPesananObat = database.getReference(PESANAN_OBAT).child(mUser.uid)
-        val refInfoPesanan = database.getReference(PESANAN_OBAT).child(INFOPESANAN).child(mUser.uid)
+        refPesananObat = database.getReference(PESANAN_OBAT).child(iduser)
+        val refInfoPesanan = database.getReference(PESANAN_OBAT).child(INFOPESANAN).child(iduser)
 
         refPesananObat.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
@@ -40,18 +43,18 @@ class PembayaranActivity : AppCompatActivity() {
                     for (data in datas.children){
                         val pesanan = data.getValue(PesananObat::class.java)!!
                         listPesananObat.add(pesanan)
-                        adapter = PesananObatAdapter(this@PembayaranActivity, listPesananObat )
                     }
-                }
+                        adapter = PesananObatAdapter(this@PembayaranActivity, listPesananObat )
                 listbarang.adapter = adapter
+                }
             }
         })
 
 
-//        radioGroup.setOnCheckedChangeListener { radioGroup, id ->
-//            if (id == R.id.radiocash)refPesananObat.child(PEMBAYARAN).setValue("cash")
-//            else refPesananObat.child(PEMBAYARAN).setValue("bca")
-//        }
+        radioGroup.setOnCheckedChangeListener { radioGroup, id ->
+            if (radiobca.isChecked) txtnoBCA.visibility = View.VISIBLE
+            else  txtnoBCA.visibility = View.GONE
+        }
 //
         btnsimpan.setOnClickListener {
             if (radioGroup.checkedRadioButtonId == R.id.radiocash) refInfoPesanan.child(PEMBAYARAN).setValue("Dibayar dengan Cash")

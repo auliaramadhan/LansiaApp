@@ -1,7 +1,6 @@
 package com.example.tubes.lana.Adapter
 
 import android.content.Context
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +8,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tubes.lana.Model.Obat
-import com.example.tubes.lana.R
-import java.util.jar.Attributes
 import java.text.NumberFormat
 import java.util.*
 
 
+
 class ObatAdapter (val context: Context, val listobat: List<Obat>, val itemClick: (Obat) -> Unit) : RecyclerView.Adapter<ObatAdapter.Holder>() {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ObatAdapter.Holder {
         val view = LayoutInflater.from(context)
             .inflate(com.example.tubes.lana.R.layout.obat_list_row, parent, false)
@@ -23,11 +23,11 @@ class ObatAdapter (val context: Context, val listobat: List<Obat>, val itemClick
     }
 
     override fun getItemCount(): Int {
-        return listobat.count()
+        return this.listobat.count()
     }
 
     override fun onBindViewHolder(holder: ObatAdapter.Holder, position: Int) {
-        holder?.bindCategory(listobat[position], context)
+        holder?.bindCategory(this.listobat[position], context)
     }
 
     inner class Holder(itemView: View?, val itemClick: (Obat) -> Unit) : RecyclerView.ViewHolder(itemView!!) {

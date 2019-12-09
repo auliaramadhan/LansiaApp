@@ -91,15 +91,10 @@ class LoginActivity : AppCompatActivity() {
             val mainIntent = Intent(this@LoginActivity, BerandaActivity::class.java)
             val preferences = getSharedPreferences(SHAREDPREFFILE, MODE_PRIVATE)
             val edit = preferences.edit()
-            edit.putString(
-                USER_NAME,
-                account?.displayName
-            )
-            edit.commit()
-            mainIntent.putExtra(
-                USER_NAME,
-                account?.displayName
-            )
+            println(account?.id)
+            edit.putString(USER_NAME,account?.displayName)
+            edit.putString(USER_ID, account?.id)
+            edit.apply()
             finish()
             startActivity(mainIntent)
         } catch (e: ApiException) {
@@ -112,16 +107,8 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(
                 this
             ) { task ->
-                if (task.isSuccessful) {
-
-//                    val user = mAuth.currentUser
-//                    // tombol signIn di tap, maka akan pindah ke laman aktivitas utama
-//                    val i = Intent(this, BerandaActivity::class.java)
-//                    //memulai intent
-//                    startActivity(i)
-
-                    sendToMain()
-                } else {
+                if (task.isSuccessful) {sendToMain()}
+                else {
                     //jika salah maka akan menampilkan toast
                     Toast.makeText(
                         this@LoginActivity, "Akun Belum Terdaftar",
@@ -132,21 +119,6 @@ class LoginActivity : AppCompatActivity() {
 
     }
 
-    //Metode bolean untuk memvalidasi
-//    fun validateForm(): Boolean {
-////        fun valid() : Boolean =
-////        // kondisi ketika email dan password kosong
-////        if (email == null || password == null ) {
-////            valid = false
-////        } else {
-////            valid = true
-////        }
-////        return valid
-////
-//        return
-//
-//    }
-
     //metod Untuk memindahkan laman
     private fun sendToMain() {
         val mainIntent = Intent(this, BerandaActivity::class.java)
@@ -156,11 +128,8 @@ class LoginActivity : AppCompatActivity() {
             USER_NAME,
             mAuth.currentUser!!.email!!.split(("@").toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
         )
-        edit.commit()
-        mainIntent.putExtra(
-            USER_NAME,
-            mAuth.currentUser!!.email!!.split(("@").toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[0]
-        )
+        edit.putString(USER_ID,mAuth.uid)
+        edit.apply()
         finish()
         startActivity(mainIntent)
     }

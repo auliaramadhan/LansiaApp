@@ -1,11 +1,9 @@
 package com.example.tubes.lana
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tubes.lana.Adapter.PesananObatAdapter
 import com.example.tubes.lana.Model.PesananObat
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_pembayaran.listbarang
@@ -26,24 +24,26 @@ class PengirimanActivity : AppCompatActivity() {
 
         listPesananObat = mutableListOf()
 
-        mUser = FirebaseAuth.getInstance().currentUser!!
+//        mUser = FirebaseAuth.getInstance().currentUser!!
         database = FirebaseDatabase.getInstance()
         refPesananObat = database.getReference(PESANAN_OBAT)
+
+        val userid = intent.getStringExtra(USER_ID)
 
         refPesananObat.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
 
             }
             override fun onDataChange(datas: DataSnapshot) {
-                if (datas.child(mUser.uid).exists()){
-                    for (data in datas.children){
+                if (datas.child(userid).exists()){
+                    for (data in datas.child(userid).children){
                         val pesanan = data.getValue(PesananObat::class.java)!!
                         listPesananObat.add(pesanan)
+                    }
                         adapter = PesananObatAdapter(this@PengirimanActivity, listPesananObat )
                         listbarang.adapter = adapter
-                    }
                 }
-                val info = datas.child(INFOPESANAN).child(mUser.uid)
+                val info = datas.child(INFOPESANAN).child(userid)
                 txtpembayaran.text = info.child(PEMBAYARAN).getValue(String::class.java)
                 txtalamat.text = info.child(ALAMAT).getValue(String::class.java)
             }

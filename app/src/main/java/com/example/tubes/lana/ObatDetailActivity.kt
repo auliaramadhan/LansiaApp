@@ -40,8 +40,9 @@ class ObatDetailActivity : AppCompatActivity() {
         refPesananObat = database.getReference(PESANAN_OBAT)
 
         val key = intent.getStringExtra(KEY_OBAT)
-        val mauth : FirebaseAuth= FirebaseAuth.getInstance()
-        val user : FirebaseUser? = mauth.currentUser
+//        val mauth : FirebaseAuth= FirebaseAuth.getInstance()
+//        val user : FirebaseUser? = mauth.currentUser
+        val iduser = intent.getStringExtra(USER_ID)
         var harga : Int = 1
 
 
@@ -80,7 +81,7 @@ class ObatDetailActivity : AppCompatActivity() {
             val jumlah = textJumlah.text.toString().toInt()
             pesananObat.jumlah = jumlah
             pesananObat.totalharga *= pesananObat.jumlah
-            refPesananObat.child(user?.uid.toString()).child(key).setValue(pesananObat)
+            refPesananObat.child(iduser).child(key).setValue(pesananObat)
             finish()
         }
 

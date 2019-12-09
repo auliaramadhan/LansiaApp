@@ -14,7 +14,7 @@ import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.tasks.Task
-
+import kotlinx.android.synthetic.main.activity_beranda.*
 
 
 class BerandaActivity : AppCompatActivity() {
@@ -26,17 +26,13 @@ class BerandaActivity : AppCompatActivity() {
     lateinit var mGoogleSignInClient: GoogleSignInClient
     lateinit var mGoogleSignInOptions: GoogleSignInOptions
 
+
+    override fun onBackPressed() {
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_beranda)
-
-        val intent = Intent(this@BerandaActivity, BerandaActivity::class.java)
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        intent.putExtra("EXIT", true)
-        startActivity(intent)
-        if (getIntent().getBooleanExtra("EXIT", false)) {
-            finish();
-        }
 
         preferences = getSharedPreferences(SHAREDPREFFILE, MODE_PRIVATE)
         mAuth = FirebaseAuth.getInstance()
@@ -47,6 +43,8 @@ class BerandaActivity : AppCompatActivity() {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, mGoogleSignInOptions)
 
+
+        txtwelcome.text =  "Selamat Datang " + preferences.getString(USER_NAME,"")
     }
 
     fun lapotikClick(view: View) {
@@ -59,8 +57,8 @@ class BerandaActivity : AppCompatActivity() {
     }
 
     fun laminderClick(view: View) {
-//        val nextActivity = Intent(this, LoginActivity::class.java)
-//        startActivity(nextActivity)
+        val nextActivity = Intent(this, LaminderActivity::class.java)
+        startActivity(nextActivity)
     }
     fun lahragaClick(view: View) {
         val nextActivity = Intent(this, LahragaActivity::class.java)
