@@ -22,8 +22,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgvw"
-        android:background="#7EFFFFFF"
         android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:layout_marginBottom="16dp"
         />
 
         <EditText
@@ -31,13 +33,13 @@
             android:inputType="textMultiLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:hint="Alamat pengiriman"
-            android:lines="8"
+            android:lines="6"
             android:minLines="6"
             android:gravity="top|left"
-            android:maxLines="10"
+            android:maxLines="6"
             android:background="@drawable/border_background"
+            android:layout_marginBottom="16dp"
         />
 
         <RadioGroup
@@ -76,6 +78,7 @@
             android:layout_gravity="end"
             style="@style/button_medium"
             android:layout_marginTop="24dp"/>
+
 
 
 </LinearLayout>

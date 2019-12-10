@@ -28,7 +28,7 @@ class LahragaActivity : AppCompatActivity(), YouTubePlayer.OnInitializedListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lahraga)
 
-        id_video = "YE7VzlLtp-4"
+        id_video = "G63uL4TaP3o"
         youTubePlayerFragment = supportFragmentManager.findFragmentById(R.id.official_player_view) as YouTubePlayerSupportFragment
         youTubePlayerFragment.initialize("f6d5afbe453d40d0b27133bce01d2604", this)
 
@@ -81,11 +81,11 @@ class LahragaActivity : AppCompatActivity(), YouTubePlayer.OnInitializedListener
     }
 
     fun beginner(view: View) {
-        id_video = "YE7VzlLtp-4"
+        id_video = "G63uL4TaP3o"
         myoutubeplayer.cueVideo(id_video)
     }
     fun intermediate(view: View) {
-        id_video = "0pThnRneDjw"
+        id_video = "MXMOLdiNdKE"
         myoutubeplayer.cueVideo(id_video)
 //        third_party_player_view.release()
 //        third_party_player_view.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
@@ -98,7 +98,7 @@ class LahragaActivity : AppCompatActivity(), YouTubePlayer.OnInitializedListener
 
 
     fun Advance(view: View) {
-        id_video = "3xvOVRSRHtg"
+        id_video = "hwiwg-C5pT4"
         myoutubeplayer.cueVideo(id_video)
 //        third_party_player_view.release()
 //        third_party_player_view.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {

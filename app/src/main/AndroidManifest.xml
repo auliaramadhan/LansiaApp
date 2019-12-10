@@ -39,9 +39,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".LoginActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.tubes.lana.BerandaActivity" />
         </activity>
         <activity android:name=".PanduanActivity" />
         <activity android:name=".BerandaActivity" />

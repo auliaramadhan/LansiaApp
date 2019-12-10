@@ -142,4 +142,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/sign_out"
         android:onClick="signOut"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

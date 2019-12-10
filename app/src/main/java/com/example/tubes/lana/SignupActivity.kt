@@ -34,7 +34,12 @@ class SignupActivity : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
         }
+
+        logiin.setOnClickListener {
+            finish() }
     }
+
+
 
 
     fun signUp(email:String,password:String){

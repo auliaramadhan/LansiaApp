@@ -80,9 +80,17 @@ class BerandaActivity : AppCompatActivity() {
 
                 }
             })
-        preferences.edit().clear()
+        preferences.edit().clear().apply()
         startActivity(Intent(this, LoginActivity::class.java))
         finish()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (preferences.getString(USER_ID, null) == null){
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
 
 }
