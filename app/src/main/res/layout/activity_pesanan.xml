@@ -1,9 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/background_gradient"
     tools:context=".PesananActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:src="@drawable/lana"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:id="@+id/imgvw" />
+
+    <ListView
+        android:id="@+id/listbarang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgvw"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:layout_marginBottom="16dp" />
+
+    <LinearLayout
+        android:id="@+id/kontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/txtnamaobat"
+            style="@style/style_kalimat_login"
+            android:textColor="#000"
+            android:text="Jumlah"
+            android:layout_weight="1"
+            android:textAlignment="textStart"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/txthargatotal"
+            style="@style/style_kalimat_login"
+            android:textColor="#000"
+            android:text="asddasdasdaxccadsadsd"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textAlignment="textEnd" />
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/txtnoBCA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Nomor virtual account"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnsimpan"
+        android:text="Pembayaran"
+        android:gravity="center"
+        android:layout_gravity="end"
+        style="@style/button_medium"
+        android:layout_marginTop="24dp" />
+
+
+</LinearLayout>

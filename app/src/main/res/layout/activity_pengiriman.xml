@@ -8,14 +8,6 @@
     android:background="@drawable/background_gradient"
     tools:context=".PengirimanActivity">
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:src="@drawable/lana"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:id="@+id/imgvw" />
-
     <ListView
         android:id="@+id/listbarang"
         android:layout_width="match_parent"
@@ -39,20 +31,18 @@
         android:layout_height="wrap_content"
         android:hint="Alamat pengiriman"
         android:padding="16dp"
-        android:lines="6"
-        android:minLines="6"
+        android:lines="4"
+        android:minLines="4"
         android:gravity="start|left"
-        android:maxLines="6"
         android:background="@drawable/border_background"
         android:layout_marginBottom="16dp" />
 
 
     <TextView
         android:id="@+id/txtpembayaran"
-        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textColor="#000"
         android:text="dibayar dengan" />
 

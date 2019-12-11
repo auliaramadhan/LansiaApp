@@ -16,16 +16,6 @@
         android:layout_gravity="center"
         android:id="@+id/imgvw" />
 
-    <ListView
-        android:id="@+id/listbarang"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imgvw"
-        android:layout_weight="1"
-        android:background="@android:color/transparent"
-        android:cacheColorHint="@android:color/transparent"
-        android:layout_marginBottom="16dp" />
-
     <EditText
         android:id="@+id/txtalamat"
         android:inputType="textMultiLine"
@@ -45,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_marginTop="24dp"
         android:layout_below="@+id/textView1">
 
         <RadioButton
@@ -65,9 +56,16 @@
         android:id="@+id/txtnoBCA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="number"
         android:layout_marginTop="8dp"
-        android:hint="Nomor virtual account"
-        android:visibility="gone" />
+        android:hint="Nomor virtual account" />
+
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
 
     <Button
         android:id="@+id/btnsimpan"

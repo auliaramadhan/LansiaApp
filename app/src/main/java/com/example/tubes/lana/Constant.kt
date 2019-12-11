@@ -30,6 +30,8 @@ val PEMBAYARAN = "pembayaran"
 val PENGIRIMAM = "pengiriman"
 val ALAMAT = "alamat"
 
+val METODE_PEMBAYARAN = "metodepembayaran"
+
 val INFOPESANAN = "infoPesanan"
 
 val REMINDER = "reminder"

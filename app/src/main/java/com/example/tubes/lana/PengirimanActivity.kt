@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.tubes.lana.Adapter.PesananObatAdapter
 import com.example.tubes.lana.Model.PesananObat
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_pembayaran.listbarang
 import kotlinx.android.synthetic.main.activity_pengiriman.*
 
 class PengirimanActivity : AppCompatActivity() {
@@ -23,7 +22,6 @@ class PengirimanActivity : AppCompatActivity() {
 
         listPesananObat = mutableListOf()
 
-//        mUser = FirebaseAuth.getInstance().currentUser!!
         database = FirebaseDatabase.getInstance()
         refPesananObat = database.getReference(PESANAN_OBAT)
 
@@ -38,7 +36,8 @@ class PengirimanActivity : AppCompatActivity() {
                 if (datas.child(userid).exists()) {
                     for (data in datas.child(userid).children) {
                         val pesanan = data.getValue(PesananObat::class.java)!!
-                        listPesananObat.add(pesanan)
+                        if (pesanan.jumlah != 0 ) listPesananObat.add(pesanan)
+
                     }
                     var total = listPesananObat.map { it.totalharga }.sum()
                     listPesananObat.add(PesananObat("Jumlah" ,total, null))

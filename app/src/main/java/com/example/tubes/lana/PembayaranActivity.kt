@@ -13,14 +13,9 @@ class PembayaranActivity : AppCompatActivity() {
     lateinit var database: FirebaseDatabase
     lateinit var refPesananObat: DatabaseReference
 
-    private lateinit var listPesananObat: MutableList<PesananObat>
-    lateinit var adapter: PesananObatAdapter
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pembayaran)
-
-        listPesananObat = mutableListOf()
 
 //        mUser = FirebaseAuth.getInstance().currentUser!!
         val iduser = intent.getStringExtra(USER_ID)
@@ -28,45 +23,29 @@ class PembayaranActivity : AppCompatActivity() {
         refPesananObat = database.getReference(PESANAN_OBAT).child(iduser)
         val refInfoPesanan = database.getReference(PESANAN_OBAT).child(INFOPESANAN).child(iduser)
 
-        refPesananObat.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-
-            }
-
-            override fun onDataChange(datas: DataSnapshot) {
-                if (datas.exists()) {
-                    for (data in datas.children) {
-                        val pesanan = data.getValue(PesananObat::class.java)!!
-                        listPesananObat.add(pesanan)
-                    }
-                    var total = listPesananObat.map { it.totalharga }.sum()
-                    listPesananObat.add(PesananObat("Jumlah" ,total, null))
-                    adapter = PesananObatAdapter(this@PembayaranActivity, listPesananObat)
-                    listbarang.adapter = adapter
-                }
-            }
-        })
-
+        txtnoBCA.isEnabled = false
 
         radioGroup.setOnCheckedChangeListener { radioGroup, id ->
-            if (radiobca.isChecked) txtnoBCA.visibility = View.VISIBLE
-            else txtnoBCA.visibility = View.GONE
+            if (radiobca.isChecked) txtnoBCA.isEnabled = true
+            else txtnoBCA.isEnabled = false
         }
 //
         btnsimpan.setOnClickListener {
+            val inten = Intent(this@PembayaranActivity, DriverActivity::class.java)
             if (radioGroup.checkedRadioButtonId == R.id.radiocash) {
                 refInfoPesanan.child(PEMBAYARAN).setValue("Dibayar dengan Cash")
                 refInfoPesanan.child(PENGIRIMAM).setValue(2)
+                inten.putExtra(METODE_PEMBAYARAN, 1 )
             } else {
                 refInfoPesanan.child(PEMBAYARAN).setValue("Dibayar dengan Virtual BCA")
-                refInfoPesanan.child(PENGIRIMAM).setValue(1)
+                refInfoPesanan.child(PENGIRIMAM).setValue(2)
+                inten.putExtra(METODE_PEMBAYARAN, 2)
             }
             refInfoPesanan.child(ALAMAT).setValue(txtalamat.text.toString())
 
-            val inten = Intent(this@PembayaranActivity, PengirimanActivity::class.java)
             inten.putExtra(USER_ID, iduser)
+            inten.putExtra(PEMBAYARAN, intent.getIntExtra(PEMBAYARAN, 0))
             startActivity(inten)
-            finish()
         }
 
     }

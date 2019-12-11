@@ -43,7 +43,7 @@ class LapotikActivity : AppCompatActivity() {
         val iduser = preferences.getString(USER_ID, "")
 
         btnpembayaran.setOnClickListener {
-            val intent = Intent(this, PembayaranActivity::class.java)
+            val intent = Intent(this, PesananActivity::class.java)
             intent.putExtra(USER_ID, iduser)
             startActivity(intent)
         }
@@ -130,25 +130,25 @@ class LapotikActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val refPesananObat = database.getReference(PESANAN_OBAT).child(INFOPESANAN)
-//        val user : FirebaseUser? = FirebaseAuth.getInstance().currentUser
-        val id = preferences.getString(USER_ID, "")
-        refPesananObat.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-            }
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-
-                if (id != "") {
-
-                    if (snapshot.child(id).hasChild(PENGIRIMAM)) {
-                        val inten = Intent(this@LapotikActivity, PengirimanActivity::class.java)
-                        inten.putExtra(USER_ID, id)
-                        startActivity(inten)
-                        finish()
-                    }
-                }
-            }
-        })
+//        val refPesananObat = database.getReference(PESANAN_OBAT).child(INFOPESANAN)
+////        val user : FirebaseUser? = FirebaseAuth.getInstance().currentUser
+//        val id = preferences.getString(USER_ID, "")
+//        refPesananObat.addListenerForSingleValueEvent(object : ValueEventListener {
+//            override fun onCancelled(p0: DatabaseError) {
+//            }
+//
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//
+//                if (id != "") {
+//
+//                    if (snapshot.child(id).hasChild(PENGIRIMAM)) {
+//                        val inten = Intent(this@LapotikActivity, PengirimanActivity::class.java)
+//                        inten.putExtra(USER_ID, id)
+//                        startActivity(inten)
+//                        finish()
+//                    }
+//                }
+//            }
+//        })
     }
 }

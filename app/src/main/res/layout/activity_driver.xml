@@ -1,9 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".DriverActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_lana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:srcCompat="@drawable/lana" />
+
+    <TextView
+        android:id="@+id/textContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/textfont"
+        android:text="Kesusaham Membeli Obat karena Jauh ?"
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="48sp"
+        android:textStyle="bold|italic" />
+
+    <LinearLayout
+        android:id="@+id/textDriver"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:textStyle="bold|italic" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/textfont"
+            android:text="Informasi Driver "
+            android:textColor="@color/colorText"
+            android:textSize="48sp"
+            android:textStyle="bold|italic" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/driver_gojek"
+            android:layout_gravity="center_horizontal"
+            app:civ_border_color="#fff"
+            app:civ_border_width="2dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/textfont"
+            android:text="Mahardika"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="36sp"
+            android:textStyle="bold|italic" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/textfont"
+            android:text="085395410633"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="36sp"
+            android:textStyle="bold|italic" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/textfont"
+            android:text="B 3451 ACD"
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="36sp"
+            android:textStyle="bold|italic" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnsimpan"
+        android:text="Next"
+        android:gravity="center"
+        android:layout_gravity="end"
+        style="@style/button_medium"
+        android:layout_marginBottom="24dp"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
