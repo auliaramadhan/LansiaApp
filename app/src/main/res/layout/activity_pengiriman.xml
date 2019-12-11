@@ -1,77 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="16dp"
     android:background="@drawable/background_gradient"
     tools:context=".PengirimanActivity">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/lana"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:id="@+id/imgvw" />
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:src="@drawable/lana"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:id="@+id/imgvw" />
 
-        <ListView
-            android:id="@+id/listbarang"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/imgvw"
-            android:background="#7EFFFFFF"
-            android:divider="#F5F5F5"
-            android:dividerHeight="1dp"
-            android:visibility="visible"
-            android:layout_weight="1"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dikirimkan ke"
-            />
-        <TextView
-            android:id="@+id/txtalamat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:lines="8"
-            android:minLines="6"
-            android:gravity="top|left"
-            android:maxLines="10"
-            android:background="@drawable/border_background"
-            />
-        <TextView
-            android:id="@+id/txtpembayaran"
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="dibayar dengan"
-            />
-        <View style="@style/black_outline" android:layout_margin="0dp" />
+    <ListView
+        android:id="@+id/listbarang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgvw"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:layout_marginBottom="16dp" />
 
-        <CheckBox
-            android:id="@+id/c"
-            android:text="Pesan barang"
-            style="@style/check_button"
-            android:checked="true"/>
-        <CheckBox
-            android:id="@+id/cb_satu"
-            android:text="Pembayaran"
-            style="@style/check_button"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:text="Dikirimkan ke"
+        android:textSize="14sp" />
 
-        <CheckBox
-            android:id="@+id/cb_dua"
-            android:text="Barang diantar"
-            style="@style/check_button" />
+    <TextView
+        android:id="@+id/txtalamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alamat pengiriman"
+        android:padding="16dp"
+        android:lines="6"
+        android:minLines="6"
+        android:gravity="start|left"
+        android:maxLines="6"
+        android:background="@drawable/border_background"
+        android:layout_marginBottom="16dp" />
 
-        <CheckBox
-            android:id="@+id/cb_tiga"
-            android:text="Barang diterima"
-            style="@style/check_button" />
+
+    <TextView
+        android:id="@+id/txtpembayaran"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="dibayar dengan" />
+
+
+    <View
+        style="@style/black_outline"
+        android:layout_margin="0dp" />
+    <CheckBox
+        android:id="@+id/cb_satu"
+        android:text="Pesan barang"
+        style="@style/check_button"
+        android:textSize="14sp"
+        android:checked="true" />
+
+    <CheckBox
+        android:id="@+id/cb_dua"
+        android:text="Pembayaran"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        style="@style/check_button" />
+
+    <CheckBox
+        android:id="@+id/cb_tiga"
+        android:text="Barang diantar"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        style="@style/check_button" />
+
+    <CheckBox
+        android:id="@+id/cb_empat"
+        android:text="Barang diterima"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"
+        style="@style/check_button" />
+
+
+
+
 
 
 </LinearLayout>

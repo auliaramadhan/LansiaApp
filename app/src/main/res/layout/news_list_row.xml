@@ -18,19 +18,17 @@
 
         <ImageView
             android:id="@+id/galleryImage"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            />
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
     </LinearLayout>
-
 
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_weight="7"
-        >
+        android:layout_weight="1">
+
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -43,7 +41,7 @@
             android:maxLines="2"
             android:scrollHorizontally="true"
             android:ellipsize="end"
-            android:text="This is news title"/>
+            android:text="This is news title" />
 
         <TextView
             android:id="@+id/sdetails"
@@ -55,8 +53,7 @@
             android:minLines="2"
             android:scrollHorizontally="true"
             android:ellipsize="end"
-            android:text="This is news description bla bla bla..."/>
-
+            android:text="This is news description bla bla bla..." />
 
 
         <LinearLayout
@@ -64,7 +61,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="1">
-
 
 
             <LinearLayout
@@ -79,7 +75,7 @@
                     android:textColor="#42A5F5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="News Author"/>
+                    android:text="News Author" />
 
             </LinearLayout>
 
@@ -91,14 +87,10 @@
                 android:textColor="#42A5F5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time"/>
+                android:text="Time" />
         </LinearLayout>
-        <View style="@style/black_outline"
-            android:layout_margin="0dp"
-            />
+
     </LinearLayout>
-
-
 
 
 </LinearLayout>

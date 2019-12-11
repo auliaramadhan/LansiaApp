@@ -1,32 +1,31 @@
 package com.example.tubes.lana
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_lamasi.*
-import java.net.HttpURLConnection.HTTP_OK
 import android.content.Context.CONNECTIVITY_SERVICE
+import android.content.Intent
 import android.net.ConnectivityManager
+import android.os.AsyncTask
+import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.tubes.lana.Adapter.ListNewsAdapter
+import com.example.tubes.lana.Model.News
+import kotlinx.android.synthetic.main.activity_lamasi.*
+import org.json.JSONException
+import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
+import java.net.HttpURLConnection.HTTP_OK
 import java.net.URL
-import android.widget.Toast
-import android.content.Intent
-import android.widget.AdapterView
-import org.json.JSONException
-import org.json.JSONObject
-import android.os.AsyncTask
-import android.provider.MediaStore.Video.VideoColumns.CATEGORY
-import android.view.View
-import com.example.tubes.lana.Adapter.ListNewsAdapter
-import com.example.tubes.lana.Model.News
 
 
 class LamasiActivity : AppCompatActivity() {
 
-    
+
 //    var listNews: ListView
 //    var loader: ProgressBar
 
@@ -42,10 +41,11 @@ class LamasiActivity : AppCompatActivity() {
 
 
         if (Function.isNetworkAvailable(getApplicationContext())) {
-            val newsTask =  DownloadNews();
+            val newsTask = DownloadNews();
             newsTask.execute();
         } else {
-            Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG)
+                .show();
         }
 
     }
@@ -56,7 +56,8 @@ class LamasiActivity : AppCompatActivity() {
         }
 
         override fun doInBackground(vararg args: String): String? {
-            val apiResponse:String = URL("https://newsapi.org/v2/top-headlines?country=id&category=$CATEGORY_api&apiKey=$API_KEY").readText()
+            val apiResponse: String =
+                URL("https://newsapi.org/v2/top-headlines?country=id&category=$CATEGORY_api&apiKey=$API_KEY").readText()
 //            return Function.excuteGet("https://newsapi.org/v2/top-headlines?country=id&category=$CATEGORY&apiKey=$API_KEY")
             return apiResponse
         }
@@ -71,12 +72,14 @@ class LamasiActivity : AppCompatActivity() {
 
                     for (i in 0 until 20) {
                         val jsonObject = jsonArray.getJSONObject(i)
-                        val map : News =News(jsonObject.optString(KEY_AUTHOR),
+                        val map: News = News(
+                            jsonObject.optString(KEY_AUTHOR),
                             jsonObject.optString(KEY_TITLE),
                             jsonObject.optString(KEY_DESCRIPTION),
                             jsonObject.optString(KEY_URL),
                             jsonObject.optString(KEY_URLTOIMAGE),
-                            jsonObject.optString(KEY_PUBLISHEDAT))
+                            jsonObject.optString(KEY_PUBLISHEDAT)
+                        )
                         dataList.add(map)
                     }
                 } catch (e: JSONException) {

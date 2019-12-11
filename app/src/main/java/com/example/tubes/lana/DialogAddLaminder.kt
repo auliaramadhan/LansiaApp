@@ -16,12 +16,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import com.example.tubes.lana.Model.Reminder
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.dialog_add_reminder.*
-import kotlinx.android.synthetic.main.news_list_row.*
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 
@@ -29,11 +25,12 @@ class DialogAddLaminder : DialogFragment() {
 
     private var content: String? = null
 
-    lateinit var preferences : SharedPreferences
+    lateinit var preferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        preferences = activity!!.getSharedPreferences(SHAREDPREFFILE, AppCompatActivity.MODE_PRIVATE)
+        preferences =
+            activity!!.getSharedPreferences(SHAREDPREFFILE, AppCompatActivity.MODE_PRIVATE)
 
     }
 
@@ -46,7 +43,7 @@ class DialogAddLaminder : DialogFragment() {
 
         var view: View = inflater.inflate(R.layout.dialog_add_reminder, container, false)
 
-        var time : Long = 0
+        var time: Long = 0
         val buttonCancel = view.findViewById(R.id.buttonCancel) as Button
         val buttonAccept = view.findViewById(R.id.buttonAccept) as Button
         val editwaktu = view.findViewById(R.id.editwaktu) as EditText
@@ -87,7 +84,7 @@ class DialogAddLaminder : DialogFragment() {
         buttonAccept.setOnClickListener {
 
             val iduser = preferences.getString(USER_ID, "")
-            val data  =FirebaseDatabase.getInstance().getReference(REMINDER).child(iduser)
+            val data = FirebaseDatabase.getInstance().getReference(REMINDER).child(iduser)
             val objek = Reminder(
                 editnamapengingat.text.toString(),
                 editketerangan.text.toString(),
@@ -99,7 +96,6 @@ class DialogAddLaminder : DialogFragment() {
 
         return view
     }
-
 
 
 }

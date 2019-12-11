@@ -1,7 +1,7 @@
 package com.example.tubes.lana
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 class CallCenterActivity : AppCompatActivity() {
 

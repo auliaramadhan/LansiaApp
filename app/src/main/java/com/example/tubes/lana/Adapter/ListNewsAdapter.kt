@@ -1,15 +1,15 @@
 package com.example.tubes.lana.Adapter
 
+import android.app.Activity
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.app.Activity
-import com.squareup.picasso.Picasso
-import android.widget.TextView
-import android.view.LayoutInflater
 import android.widget.ImageView
-import com.example.tubes.lana.*
+import android.widget.TextView
 import com.example.tubes.lana.Model.News
+import com.example.tubes.lana.R
+import com.squareup.picasso.Picasso
 
 
 class ListNewsAdapter : BaseAdapter {
@@ -58,11 +58,11 @@ class ListNewsAdapter : BaseAdapter {
 //        holder.details?.id = position
 //        holder.time?.id = position
 
-        var song : News = data[position]
+        var song: News = data[position]
 
         try {
             holder.author?.text = song.author
-            holder.title?.text = if(song.title != null) song.title else "-"
+            holder.title?.text = if (song.title != null) song.title else "-"
             holder.time?.text = song.publish
             holder.details?.text = song.description
 

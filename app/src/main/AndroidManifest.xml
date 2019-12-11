@@ -9,20 +9,29 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/lana"
         android:label="@string/app_name"
         android:roundIcon="@drawable/lana"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".DriverActivity"></activity>
+        <activity android:name=".PesananActivity" />
         <activity
             android:name=".LaminderActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PengirimanActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.tubes.lana.BerandaActivity" />
+                android:configChanges="orientation"
+                android:screenOrientation="portrait"
+                android:value="com.example.tubes.lana.LapotikActivity" />
         </activity>
-        <activity android:name=".PembayaranActivity">
+        <activity
+            android:name=".PembayaranActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.tubes.lana.LapotikActivity" />
@@ -38,10 +47,15 @@
             android:label="@string/title_activity_panduan_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity">
-        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <activity android:name=".PanduanActivity" />
-        <activity android:name=".BerandaActivity" />
+        <activity
+            android:name=".BerandaActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

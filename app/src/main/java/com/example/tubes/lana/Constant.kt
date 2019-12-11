@@ -7,8 +7,8 @@ var USER_ID = "userid"
 
 val REQUEST_CODE = 1
 
- val ID_STRING = "idstring"
- val ID_IMAGE = "idIMG"
+val ID_STRING = "idstring"
+val ID_IMAGE = "idIMG"
 val ID_TITLE = "idtitle"
 
 val KEY_AUTHOR = "author"

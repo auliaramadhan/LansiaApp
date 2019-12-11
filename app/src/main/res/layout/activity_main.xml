@@ -26,10 +26,11 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:fontFamily="@font/textfont"
-        android:text="Selamat datang di aplikasi Lana"
+        android:text="Kesusaham Membeli Obat karena Jauh ?"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="36sp" />
+        android:textSize="48sp"
+        android:textStyle="bold|italic" />
 
 
 </RelativeLayout>

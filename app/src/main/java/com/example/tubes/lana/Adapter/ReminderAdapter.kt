@@ -8,14 +8,12 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.tubes.lana.Model.Reminder
 import com.example.tubes.lana.R
-import java.text.NumberFormat
-import java.util.*
 
-class ReminderAdapter(val context: Context, val pesanan: List<Reminder>) : BaseAdapter(){
+class ReminderAdapter(val context: Context, val pesanan: List<Reminder>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val holderView: View
-        val holder : ViewHolder
+        val holder: ViewHolder
 
         if (convertView == null) {
             holderView = LayoutInflater.from(context).inflate(R.layout.reminder_list_view, null)
@@ -52,7 +50,7 @@ class ReminderAdapter(val context: Context, val pesanan: List<Reminder>) : BaseA
     private class ViewHolder {
         var nama: TextView? = null
         var waktu: TextView? = null
-        var keterangan : TextView? = null
+        var keterangan: TextView? = null
 
     }
 }

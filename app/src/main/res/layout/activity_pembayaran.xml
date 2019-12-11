@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,9 +8,9 @@
     android:background="@drawable/background_gradient"
     tools:context=".PembayaranActivity">
 
-        <ImageView
+    <ImageView
         android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
         android:src="@drawable/lana"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
@@ -25,60 +24,58 @@
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:cacheColorHint="@android:color/transparent"
-        android:layout_marginBottom="16dp"
-        />
+        android:layout_marginBottom="16dp" />
 
-        <EditText
-            android:id="@+id/txtalamat"
-            android:inputType="textMultiLine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Alamat pengiriman"
-            android:lines="6"
-            android:minLines="6"
-            android:gravity="top|left"
-            android:maxLines="6"
-            android:background="@drawable/border_background"
-            android:layout_marginBottom="16dp"
-        />
+    <EditText
+        android:id="@+id/txtalamat"
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alamat pengiriman"
+        android:padding="16dp"
+        android:lines="6"
+        android:minLines="6"
+        android:gravity="top|left"
+        android:maxLines="6"
+        android:background="@drawable/border_background"
+        android:layout_marginBottom="16dp" />
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1">
+
+        <RadioButton
+            android:id="@+id/radiocash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView1" >
+            android:checked="true"
+            android:text="bayar Secara Cash" />
 
-            <RadioButton
-                android:id="@+id/radiocash"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="bayar Secara Cash" />
-
-            <RadioButton
-                android:id="@+id/radiobca"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bayar dengan BCA" />
-        </RadioGroup>
-
-        <EditText
-            android:id="@+id/txtnoBCA"
-            android:layout_width="match_parent"
+        <RadioButton
+            android:id="@+id/radiobca"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="Nomor virtual account"
-            android:visibility="gone"
-            />
-        <Button
-            android:id="@+id/btnsimpan"
-            android:text="Simpan"
-            android:gravity="center"
-            android:layout_gravity="end"
-            style="@style/button_medium"
-            android:layout_marginTop="24dp"/>
+            android:text="Bayar dengan BCA" />
+    </RadioGroup>
 
+    <EditText
+        android:id="@+id/txtnoBCA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Nomor virtual account"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnsimpan"
+        android:text="Simpan"
+        android:gravity="center"
+        android:layout_gravity="end"
+        style="@style/button_medium"
+        android:layout_marginTop="24dp" />
 
 
 </LinearLayout>

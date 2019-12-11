@@ -17,7 +17,7 @@
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/lana" />
 
-<!--    <include layout="@layout/content_laminder_acitivty" />-->
+    <!--    <include layout="@layout/content_laminder_acitivty" />-->
 
     <ListView
         android:id="@+id/list_reminder"
@@ -25,7 +25,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/imgLana"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+        android:layout_marginEnd="16dp" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

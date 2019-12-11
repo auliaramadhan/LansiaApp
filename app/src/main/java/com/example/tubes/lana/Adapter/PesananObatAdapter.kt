@@ -11,11 +11,11 @@ import com.example.tubes.lana.R
 import java.text.NumberFormat
 import java.util.*
 
-class PesananObatAdapter(val context: Context, val pesanan: List<PesananObat>) : BaseAdapter(){
+class PesananObatAdapter(val context: Context, val pesanan: List<PesananObat>) : BaseAdapter() {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val categoryView: View
-        val holder : ViewHolder
+        val holder: ViewHolder
 
         if (convertView == null) {
             categoryView = LayoutInflater.from(context).inflate(R.layout.pesanan_obat_list, null)
@@ -29,7 +29,9 @@ class PesananObatAdapter(val context: Context, val pesanan: List<PesananObat>) :
         }
 
         val data = pesanan[position]
-        holder.namaObat?.text = "${data.nama} X ${data.jumlah}"
+        if (data.jumlah != null) holder.namaObat?.text = "${data.nama} X ${data.jumlah}"
+        else holder.namaObat?.text = data.nama
+
         val format = NumberFormat.getCurrencyInstance()
         format.setMaximumFractionDigits(0)
         format.setCurrency(Currency.getInstance("IDR"))

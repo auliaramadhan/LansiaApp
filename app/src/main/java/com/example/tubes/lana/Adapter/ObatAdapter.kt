@@ -12,8 +12,8 @@ import java.text.NumberFormat
 import java.util.*
 
 
-
-class ObatAdapter (val context: Context, val listobat: List<Obat>, val itemClick: (Obat) -> Unit) : RecyclerView.Adapter<ObatAdapter.Holder>() {
+class ObatAdapter(val context: Context, val listobat: List<Obat>, val itemClick: (Obat) -> Unit) :
+    RecyclerView.Adapter<ObatAdapter.Holder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ObatAdapter.Holder {
@@ -30,14 +30,17 @@ class ObatAdapter (val context: Context, val listobat: List<Obat>, val itemClick
         holder?.bindCategory(this.listobat[position], context)
     }
 
-    inner class Holder(itemView: View?, val itemClick: (Obat) -> Unit) : RecyclerView.ViewHolder(itemView!!) {
+    inner class Holder(itemView: View?, val itemClick: (Obat) -> Unit) :
+        RecyclerView.ViewHolder(itemView!!) {
         val image = itemView?.findViewById<ImageView>(com.example.tubes.lana.R.id.obatimg)
         val nama = itemView?.findViewById<TextView>(com.example.tubes.lana.R.id.obatName)
         val harga = itemView?.findViewById<TextView>(com.example.tubes.lana.R.id.obatharga)
 
         fun bindCategory(obat: Obat, context: Context) {
-            val resourceId = context.resources.getIdentifier(obat.nama,
-                "drawable", context.packageName)
+            val resourceId = context.resources.getIdentifier(
+                obat.nama,
+                "drawable", context.packageName
+            )
             this.image?.setImageResource(resourceId)
             this.nama?.text = obat.nama
 

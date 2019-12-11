@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PanduanDetailActivity">
+
     <include layout="@layout/content_panduan_detail" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

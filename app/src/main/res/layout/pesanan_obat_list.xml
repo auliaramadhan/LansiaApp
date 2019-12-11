@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <LinearLayout
@@ -13,26 +14,22 @@
         <TextView
             android:id="@+id/txtnamaobat"
             style="@style/style_kalimat_login"
+            android:textColor="#000"
             android:text="asddasdasdasd"
             android:layout_weight="1"
             android:textAlignment="textStart"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
 
 
         <TextView
             android:id="@+id/txthargatotal"
             style="@style/style_kalimat_login"
+            android:textColor="#000"
             android:text="asddasdasdaxccadsadsd"
             android:layout_weight="1"
             android:textSize="16sp"
-            android:textAlignment="textEnd"
-            />
+            android:textAlignment="textEnd" />
 
     </LinearLayout>
-    <View
-        android:layout_below="@+id/kontent"
-        style="@style/black_outline"
-        android:layout_width="match_parent"
-        android:layout_margin="8dp"/>
+
 </RelativeLayout>
