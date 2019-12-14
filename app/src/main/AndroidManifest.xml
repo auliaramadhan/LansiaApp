@@ -14,7 +14,8 @@
         android:roundIcon="@drawable/lana"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DriverActivity"></activity>
+        <activity android:name=".LapotikMenuActivity"></activity>
+        <activity android:name=".DriverActivity" />
         <activity android:name=".PesananActivity" />
         <activity
             android:name=".LaminderActivity"

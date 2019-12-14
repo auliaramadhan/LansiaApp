@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:fontFamily="@font/textfont"
-        android:text="Kesusaham Membeli Obat karena Jauh ?"
+        android:text="Kesusahan Membeli Obat karena Jauh ?"
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="48sp"
