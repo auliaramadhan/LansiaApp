@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    tools:context=".BerandaActivity">
+    tools:context=".LapotikMenuActivity">
 
     <ImageView
         android:id="@+id/imgLana"
@@ -46,7 +46,7 @@
         android:id="@+id/imgResep"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:clickable="true"
         android:onClick="resepClick"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,20 +57,24 @@
 
     <TextView
         android:id="@+id/txtResep"
-        android:text="Obat Obatan"
+        style="@style/word_beranda"
+        android:layout_marginBottom="1dp"
+        android:text="Resep Dokter"
+        app:layout_constraintBottom_toTopOf="@+id/imgProses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgResep"
-        style="@style/word_beranda" />
+        app:layout_constraintTop_toBottomOf="@+id/imgResep" />
 
     <ImageView
         android:id="@+id/imgProses"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
         android:clickable="true"
         android:onClick="prosesClick"
+        app:layout_constraintBottom_toTopOf="@+id/txtProses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,11 +83,11 @@
 
     <TextView
         android:id="@+id/txtProses"
+        style="@style/word_beranda"
         android:text="Dalam Proses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgProses"
-        style="@style/word_beranda" />
+        app:layout_constraintTop_toBottomOf="@+id/imgProses" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

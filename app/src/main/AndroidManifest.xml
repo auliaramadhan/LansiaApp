@@ -14,7 +14,8 @@
         android:roundIcon="@drawable/lana"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LapotikMenuActivity"></activity>
+        <activity android:name=".LapotikGambarActivity"></activity>
+        <activity android:name=".LapotikMenuActivity" />
         <activity android:name=".DriverActivity" />
         <activity android:name=".PesananActivity" />
         <activity
@@ -27,7 +28,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:configChanges="orientation"
                 android:screenOrientation="portrait"
-                android:value="com.example.tubes.lana.LapotikActivity" />
+                android:value="com.example.tubes.lana.LapotikMenuActivity" />
         </activity>
         <activity
             android:name=".PembayaranActivity"

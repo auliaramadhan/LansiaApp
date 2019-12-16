@@ -63,7 +63,7 @@ class BerandaActivity : AppCompatActivity() {
     }
 
     fun lapotikClick(view: View) {
-        val nextActivity = Intent(this, LapotikActivity::class.java)
+        val nextActivity = Intent(this, LapotikMenuActivity::class.java)
         startActivity(nextActivity)
     }
 
@@ -110,8 +110,5 @@ class BerandaActivity : AppCompatActivity() {
             finish()
         }
     }
-
-    fun prosesClick(view: View) {}
-    fun resepClick(view: View) {}
 
 }
